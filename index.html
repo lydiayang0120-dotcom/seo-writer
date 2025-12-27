@@ -1,0 +1,473 @@
+{\rtf1\ansi\ansicpg950\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset136 PingFangTC-Regular;\f2\fnil\fcharset0 AppleColorEmoji;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="zh-TW">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>Dr.Shine SEO & AEO 
+\f1 \'ab\'fc\'b4\'a7\'a4\'a4\'a4\'df
+\f0 </title>\
+    <script src="https://cdn.tailwindcss.com"></script>\
+    <script>\
+        tailwind.config = \{\
+            theme: \{\
+                extend: \{\
+                    colors: \{\
+                        shine: \{\
+                            black: '#000000',\
+                            gold: '#D4AF37',\
+                            googleBlue: '#1a0dab',\
+                            googleGreen: '#006621',\
+                            googleGray: '#545454'\
+                        \}\
+                    \}\
+                \}\
+            \}\
+        \}\
+    </script>\
+    <style>\
+        body \{ font-family: 'Microsoft JhengHei', sans-serif; background-color: #f0f2f5; \}\
+        .shine-border \{ border: 1px solid #D4AF37; \}\
+        /* Google SERP 
+\f1 \'bc\'d2\'c0\'c0\'bc\'cb\'a6\'a1
+\f0  */\
+        .serp-preview \{ font-family: arial, sans-serif; \}\
+        .serp-title \{ color: #1a0dab; font-size: 20px; line-height: 1.3; cursor: pointer; text-decoration: none; \}\
+        .serp-title:hover \{ text-decoration: underline; \}\
+        .serp-url \{ color: #006621; font-size: 14px; line-height: 1.3; margin-bottom: 2px; \}\
+        .serp-desc \{ color: #545454; font-size: 14px; line-height: 1.4; word-wrap: break-word; \}\
+        \
+        /* 
+\f1 \'bd\'73\'bf\'e8\'b0\'cf
+\f0  */\
+        #editor \{ min-height: 400px; outline: none; line-height: 1.8; \}\
+        #editor h2 \{ font-size: 1.5em; font-weight: bold; margin: 20px 0 10px; border-left: 4px solid #D4AF37; padding-left: 10px; \}\
+        #editor h3 \{ font-size: 1.25em; font-weight: bold; margin: 15px 0 8px; color: #444; \}\
+        #editor p \{ margin-bottom: 15px; \}\
+        \
+        /* 
+\f1 \'aa\'ac\'ba\'41\'bf\'4f
+\f0  */\
+        .status-dot \{ height: 10px; width: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; \}\
+        .bg-green-500 \{ background-color: #10B981; \}\
+        .bg-red-500 \{ background-color: #EF4444; \}\
+        .bg-yellow-500 \{ background-color: #F59E0B; \}\
+    </style>\
+</head>\
+<body class="h-screen flex flex-col overflow-hidden">\
+\
+    <header class="bg-shine-black text-shine-gold p-3 shadow-lg flex justify-between items-center border-b border-shine-gold z-10">\
+        <div class="flex items-center gap-3">\
+            <span class="text-xl font-bold tracking-widest">DR.SHINE</span>\
+            <span class="text-xs bg-shine-gold text-black px-2 py-1 rounded font-bold">SEO Command Center</span>\
+        </div>\
+        <div class="flex gap-4 text-xs text-white">\
+            <div id="seoScoreBadge" class="flex items-center gap-2 px-3 py-1 border border-shine-gold rounded">\
+                SEO 
+\f1 \'b0\'b7\'b1\'64\'ab\'d7\'a1\'47
+\f0 <span id="seoScore" class="font-bold text-shine-gold text-lg">0</span>/100\
+            </div>\
+        </div>\
+    </header>\
+\
+    <div class="flex flex-1 h-full overflow-hidden">\
+        \
+        <aside class="w-[30%] bg-white border-r border-gray-300 flex flex-col overflow-y-auto">\
+            <div class="p-5 border-b border-gray-200 bg-gray-50">\
+                <h3 class="font-bold text-gray-700 mb-3 flex items-center">\
+                    
+\f2 \uc0\u55357 \u56589 
+\f0  
+\f1 \'c3\'f6\'c1\'e4\'a6\'72\'b3\'5d\'a9\'77
+\f0 \
+                </h3>\
+                <input type="text" id="focusKeyword" placeholder="
+\f1 \'bf\'e9\'a4\'4a\'ae\'d6\'a4\'df\'c3\'f6\'c1\'e4\'a6\'72
+\f0  (
+\f1 \'a6\'70
+\f0 : 
+\f1 \'bb\'f1\'b0\'c4\'b9\'71\'aa\'69
+\f0 )" class="w-full p-2 border border-gray-300 rounded focus:border-shine-gold outline-none mb-2 text-sm" oninput="analyzeSEO()">\
+                <div class="flex justify-between text-xs text-gray-500">\
+                    <span>
+\f1 \'b1\'4b\'ab\'d7
+\f0 : <b id="kwDensity">0%</b></span>\
+                    <span>
+\f1 \'a6\'b8\'bc\'c6
+\f0 : <b id="kwCount">0</b></span>\
+                </div>\
+            </div>\
+\
+            <div class="p-5 flex-1">\
+                <h3 class="font-bold text-gray-700 mb-3 flex items-center">\
+                    
+\f2 \uc0\u55357 \u56541 
+\f0  Meta 
+\f1 \'b8\'ea\'ae\'c6
+\f0  (
+\f1 \'b7\'6a\'b4\'4d\'b5\'b2\'aa\'47\'b3\'5d\'a9\'77
+\f0 )\
+                </h3>\
+                \
+                <div class="mb-4">\
+                    <label class="block text-xs font-bold text-gray-600 mb-1">SEO 
+\f1 \'bc\'d0\'c3\'44
+\f0  (Title Tag)</label>\
+                    <input type="text" id="metaTitle" placeholder="
+\f1 \'a5\'fa\'bf\'41\'b6\'45\'a9\'d2
+\f0  - 
+\f1 \'b1\'4d\'b7\'7e\'c2\'e5\'ac\'fc\'ad\'ba\'bf\'ef
+\f0 ..." class="w-full p-2 border border-gray-300 rounded focus:border-shine-gold outline-none text-sm" oninput="updatePreview()">\
+                    <div class="text-right text-xs mt-1"><span id="titleCount">0</span>/60 
+\f1 \'a6\'72
+\f0 </div>\
+                </div>\
+\
+                <div class="mb-4">\
+                    <label class="block text-xs font-bold text-gray-600 mb-1">Meta 
+\f1 \'b4\'79\'ad\'7a
+\f0  (Description)</label>\
+                    <textarea id="metaDesc" rows="3" placeholder="
+\f1 \'c5\'fd\'b7\'6a\'b4\'4d\'aa\'cc\'b7\'51\'c2\'49\'c0\'bb\'aa\'ba\'bb\'a4\'a4\'48\'b4\'79\'ad\'7a
+\f0 ..." class="w-full p-2 border border-gray-300 rounded focus:border-shine-gold outline-none text-sm" oninput="updatePreview()"></textarea>\
+                    <div class="text-right text-xs mt-1"><span id="descCount">0</span>/160 
+\f1 \'a6\'72
+\f0 </div>\
+                </div>\
+\
+                <div class="mt-6 p-4 bg-white border border-gray-200 rounded shadow-sm">\
+                    <p class="text-xs text-gray-400 mb-2 font-bold">Google 
+\f1 \'b7\'6a\'b4\'4d\'b5\'b2\'aa\'47\'b9\'77\'c4\'fd
+\f0  (
+\f1 \'a6\'e6\'b0\'ca\'aa\'a9
+\f0 )</p>\
+                    <div class="serp-preview">\
+                        <div class="serp-url">dr-shine.com.tw \'9b blog \'9b <span id="previewSlug">article</span></div>\
+                        <div class="serp-title" id="previewTitle">
+\f1 \'bd\'d0\'bf\'e9\'a4\'4a\'bc\'d0\'c3\'44
+\f0 ...</div>\
+                        <div class="serp-desc" id="previewDesc">
+\f1 \'bd\'d0\'bf\'e9\'a4\'4a\'b4\'79\'ad\'7a
+\f0 ...</div>\
+                    </div>\
+                </div>\
+            </div>\
+        </aside>\
+\
+        <main class="w-[50%] bg-gray-50 flex flex-col relative">\
+            <div class="bg-white p-2 border-b border-gray-200 flex gap-2 shadow-sm">\
+                <button onclick="insertTemplate('aeo')" class="px-3 py-1 bg-black text-shine-gold text-xs font-bold rounded hover:bg-shine-gold hover:text-black transition">\
+                    + AEO 
+\f1 \'b0\'dd\'b5\'aa\'bc\'d2\'b2\'d5
+\f0 \
+                </button>\
+                <button onclick="insertTemplate('h2')" class="px-3 py-1 bg-white border border-gray-300 text-xs font-bold rounded hover:bg-gray-100">\
+                    H2 
+\f1 \'b0\'c6\'bc\'d0\'c3\'44
+\f0 \
+                </button>\
+                <button onclick="insertTemplate('cta')" class="px-3 py-1 bg-white border border-gray-300 text-xs font-bold rounded hover:bg-gray-100">\
+                    
+\f1 \'b4\'a1\'a4\'4a
+\f0  CTA\
+                </button>\
+            </div>\
+\
+            <div class="flex-1 p-8 overflow-y-auto">\
+                <div class="max-w-3xl mx-auto bg-white min-h-[800px] shadow-xl p-10 shine-border">\
+                    <input type="text" id="h1Input" placeholder="
+\f1 \'a6\'62\'a6\'b9\'bf\'e9\'a4\'4a\'a4\'e5\'b3\'b9\'a4\'6a\'bc\'d0\'c3\'44
+\f0  (H1)" class="w-full text-2xl font-bold mb-6 border-b border-gray-200 pb-2 outline-none" oninput="analyzeSEO()">\
+                    <div id="editor" contenteditable="true" class="text-gray-700" placeholder="
+\f1 \'b6\'7d\'a9\'6c\'bc\'b6\'bc\'67
+\f0 ..." oninput="analyzeSEO()">\
+                        <p class="text-gray-400">
+\f1 \'bd\'d0\'b6\'7d\'a9\'6c\'bc\'b6\'bc\'67\'b2\'c5\'a6\'58
+\f0  SEO 
+\f1 \'ac\'5b\'ba\'63\'aa\'ba\'a4\'ba\'ae\'65
+\f0 ...</p>\
+                    </div>\
+                </div>\
+            </div>\
+        </main>\
+\
+        <aside class="w-[20%] bg-white border-l border-gray-300 p-5 overflow-y-auto">\
+            <h3 class="font-bold text-black mb-4 border-b-2 border-shine-gold pb-2">
+\f2 \uc0\u9989 
+\f0  SEO 
+\f1 \'c0\'cb\'ac\'64\'b2\'4d\'b3\'e6
+\f0 </h3>\
+            \
+            <ul class="space-y-3 text-sm text-gray-600">\
+                <li id="check-h1" class="flex items-center"><span class="status-dot bg-red-500"></span> 
+\f1 \'af\'ca\'a4\'d6
+\f0  H1 
+\f1 \'bc\'d0\'c3\'44
+\f0 </li>\
+                <li id="check-kw-title" class="flex items-center"><span class="status-dot bg-red-500"></span> 
+\f1 \'bc\'d0\'c3\'44\'a5\'5d\'a7\'74\'c3\'f6\'c1\'e4\'a6\'72
+\f0 </li>\
+                <li id="check-kw-content" class="flex items-center"><span class="status-dot bg-red-500"></span> 
+\f1 \'a4\'ba\'ae\'65\'a5\'58\'b2\'7b\'c3\'f6\'c1\'e4\'a6\'72
+\f0 </li>\
+                <li id="check-aeo" class="flex items-center"><span class="status-dot bg-red-500"></span> AEO 
+\f1 \'b0\'dd\'b5\'aa\'b5\'b2\'ba\'63
+\f0 </li>\
+                <li id="check-length" class="flex items-center"><span class="status-dot bg-red-500"></span> 
+\f1 \'a6\'72\'bc\'c6\'b9\'46\'bc\'d0
+\f0  (>600
+\f1 \'a6\'72
+\f0 )</li>\
+            </ul>\
+\
+            <div class="mt-8 p-4 bg-gray-100 rounded">\
+                <h4 class="font-bold text-xs mb-2">
+\f2 \uc0\u55358 \u56598 
+\f0  
+\f1 \'b2\'a3\'a5\'cd
+\f0  Schema (JSON-LD)</h4>\
+                <p class="text-xs text-gray-500 mb-2">
+\f1 \'a4\'e5\'b3\'b9\'bc\'67\'a7\'b9\'ab\'e1\'a1\'41\'c2\'49\'c0\'bb\'a4\'55\'a4\'e8\'ab\'f6\'b6\'73\'bd\'c6\'bb\'73\'b5\'b2\'ba\'63\'a4\'c6\'b8\'ea\'ae\'c6\'a1\'41\'b6\'4b\'a8\'ec\'ba\'f4\'af\'b8\'ab\'e1\'a5\'78\'a5\'69\'bc\'57\'a5\'5b
+\f0  Google 
+\f1 \'a6\'ac\'bf\'fd\'be\'f7\'b2\'76\'a1\'43
+\f0 </p>\
+                <button onclick="generateSchema()" class="w-full bg-shine-gold text-black font-bold text-xs py-2 rounded hover:bg-yellow-500">\
+                    
+\f1 \'bd\'c6\'bb\'73
+\f0  Schema 
+\f1 \'a5\'4e\'bd\'58
+\f0 \
+                </button>\
+            </div>\
+        </aside>\
+\
+    </div>\
+\
+    <script>\
+        // 1. 
+\f1 \'a7\'59\'ae\'c9\'b9\'77\'c4\'fd\'a5\'5c\'af\'e0
+\f0  (SERP Preview)\
+        function updatePreview() \{\
+            const title = document.getElementById('metaTitle').value;\
+            const desc = document.getElementById('metaDesc').value;\
+            \
+            // 
+\f1 \'a7\'f3\'b7\'73\'b5\'65\'ad\'b1
+\f0 \
+            document.getElementById('previewTitle').innerText = title || "
+\f1 \'bd\'d0\'bf\'e9\'a4\'4a
+\f0  SEO 
+\f1 \'bc\'d0\'c3\'44
+\f0 ...";\
+            document.getElementById('previewDesc').innerText = desc || "
+\f1 \'bd\'d0\'bf\'e9\'a4\'4a
+\f0  Meta Description...";\
+            \
+            // 
+\f1 \'a6\'72\'bc\'c6\'ad\'70\'bc\'c6\'bb\'50\'c4\'b5\'a7\'69
+\f0 \
+            document.getElementById('titleCount').innerText = title.length;\
+            document.getElementById('descCount').innerText = desc.length;\
+\
+            const tCount = document.getElementById('titleCount');\
+            tCount.style.color = title.length > 60 ? 'red' : 'green';\
+\
+            const dCount = document.getElementById('descCount');\
+            dCount.style.color = desc.length > 160 ? 'red' : 'green';\
+            \
+            analyzeSEO();\
+        \}\
+\
+        // 2. 
+\f1 \'b4\'a1\'a4\'4a\'bc\'d2\'b2\'d5
+\f0 \
+        function insertTemplate(type) \{\
+            const editor = document.getElementById('editor');\
+            if(editor.innerHTML.includes('
+\f1 \'bd\'d0\'b6\'7d\'a9\'6c\'bc\'b6\'bc\'67
+\f0 ')) editor.innerHTML = ''; // 
+\f1 \'b2\'4d\'aa\'c5
+\f0  placeholder\
+\
+            let html = '';\
+            if (type === 'aeo') \{\
+                html = `\
+                    <div class="my-6 p-4 bg-gray-50 border-l-4 border-shine-gold" data-aeo="true">\
+                        <h2 class="text-lg font-bold text-black mb-1">Q: [
+\f1 \'a5\'ce\'a4\'e1\'b1\'60\'a8\'a3\'b0\'dd\'c3\'44
+\f0 ]</h2>\
+                        <p class="text-gray-800 font-semibold mb-2">A: (
+\f1 \'aa\'bd\'b1\'b5\'a6\'5e\'b5\'aa\'b5\'b2\'bd\'d7\'a1\'41\'ac\'f9
+\f0  50 
+\f1 \'a6\'72
+\f0 )</p>\
+                        <p class="text-sm text-gray-600">
+\f1 \'b6\'69\'a4\'40\'a8\'42\'b8\'d4\'b8\'d1\'a1\'47\'a6\'62\'b3\'6f\'b8\'cc\'b8\'c9\'a5\'52\'c2\'e5\'ae\'76\'aa\'ba\'b1\'4d\'b7\'7e\'c6\'5b\'c2\'49\'bb\'50\'bc\'c6\'be\'da\'a4\'e4\'ab\'f9
+\f0 ...</p>\
+                    </div><br>\
+                `;\
+            \} else if (type === 'h2') \{\
+                html = `<h2>
+\f1 \'bd\'d0\'bf\'e9\'a4\'4a\'b0\'c6\'bc\'d0\'c3\'44
+\f0  (
+\f1 \'a5\'5d\'a7\'74\'c3\'f6\'c1\'e4\'a6\'72
+\f0 )</h2><p>
+\f1 \'ac\'71\'b8\'a8\'a4\'ba\'ae\'65
+\f0 ...</p>`;\
+            \} else if (type === 'cta') \{\
+                html = `<div style="background:#000;color:#D4AF37;padding:15px;text-align:center;margin:20px 0;"><b>
+\f1 \'a5\'df\'a7\'59\'b9\'77\'ac\'f9\'a5\'fa\'bf\'41\'ac\'fc\'be\'c7\'bf\'d4\'b8\'df
+\f0 </b></div><br>`;\
+            \}\
+            editor.innerHTML += html;\
+            analyzeSEO();\
+        \}\
+\
+        // 3. SEO 
+\f1 \'b2\'60\'ab\'d7\'a4\'c0\'aa\'52\'c5\'de\'bf\'e8
+\f0 \
+        function analyzeSEO() \{\
+            let score = 0;\
+            const kw = document.getElementById('focusKeyword').value.trim();\
+            const title = document.getElementById('metaTitle').value;\
+            const h1 = document.getElementById('h1Input').value;\
+            const content = document.getElementById('editor').innerText;\
+            const rawHtml = document.getElementById('editor').innerHTML;\
+\
+            // 
+\f1 \'c0\'cb\'ac\'64
+\f0  H1\
+            const h1Check = document.getElementById('check-h1');\
+            if(h1.length > 0) \{ h1Check.innerHTML = '<span class="status-dot bg-green-500"></span> H1 
+\f1 \'b3\'5d\'a9\'77\'a7\'b9\'a6\'a8
+\f0 '; score += 20; \}\
+            else \{ h1Check.innerHTML = '<span class="status-dot bg-red-500"></span> 
+\f1 \'af\'ca\'a4\'d6
+\f0  H1 
+\f1 \'bc\'d0\'c3\'44
+\f0 '; \}\
+\
+            // 
+\f1 \'c0\'cb\'ac\'64\'c3\'f6\'c1\'e4\'a6\'72
+\f0 \
+            if(kw) \{\
+                // Title\
+                const kwInTitle = document.getElementById('check-kw-title');\
+                if(title.includes(kw)) \{ kwInTitle.innerHTML = '<span class="status-dot bg-green-500"></span> 
+\f1 \'bc\'d0\'c3\'44\'a5\'5d\'a7\'74\'c3\'f6\'c1\'e4\'a6\'72
+\f0 '; score += 20; \}\
+                else \{ kwInTitle.innerHTML = '<span class="status-dot bg-red-500"></span> 
+\f1 \'bc\'d0\'c3\'44\'a5\'bc\'a5\'5d\'a7\'74\'c3\'f6\'c1\'e4\'a6\'72
+\f0 '; \}\
+\
+                // Content\
+                const regex = new RegExp(kw, 'gi');\
+                const matches = content.match(regex);\
+                const count = matches ? matches.length : 0;\
+                document.getElementById('kwCount').innerText = count;\
+                document.getElementById('kwDensity').innerText = (content.length > 0 ? (count * kw.length / content.length * 100).toFixed(1) : 0) + '%';\
+                \
+                const kwInContent = document.getElementById('check-kw-content');\
+                if(count > 0) \{ kwInContent.innerHTML = '<span class="status-dot bg-green-500"></span> 
+\f1 \'a4\'ba\'ae\'65\'a5\'58\'b2\'7b\'c3\'f6\'c1\'e4\'a6\'72
+\f0 '; score += 20; \}\
+                else \{ kwInContent.innerHTML = '<span class="status-dot bg-red-500"></span> 
+\f1 \'a4\'ba\'ae\'65\'a5\'bc\'a5\'58\'b2\'7b\'c3\'f6\'c1\'e4\'a6\'72
+\f0 '; \}\
+            \}\
+\
+            // 
+\f1 \'c0\'cb\'ac\'64
+\f0  AEO 
+\f1 \'b5\'b2\'ba\'63
+\f0 \
+            const aeoCheck = document.getElementById('check-aeo');\
+            if(rawHtml.includes('data-aeo="true"')) \{ aeoCheck.innerHTML = '<span class="status-dot bg-green-500"></span> 
+\f1 \'a4\'77\'a5\'5b\'a4\'4a
+\f0  AEO 
+\f1 \'b5\'b2\'ba\'63
+\f0 '; score += 20; \}\
+            else \{ aeoCheck.innerHTML = '<span class="status-dot bg-yellow-500"></span> 
+\f1 \'ab\'d8\'c4\'b3\'a5\'5b\'a4\'4a
+\f0  AEO 
+\f1 \'b0\'dd\'b5\'aa
+\f0 '; \}\
+\
+            // 
+\f1 \'c0\'cb\'ac\'64\'a6\'72\'bc\'c6
+\f0 \
+            const lenCheck = document.getElementById('check-length');\
+            if(content.length > 600) \{ lenCheck.innerHTML = '<span class="status-dot bg-green-500"></span> 
+\f1 \'a6\'72\'bc\'c6\'a5\'52\'a8\'ac
+\f0 '; score += 20; \}\
+            else \{ lenCheck.innerHTML = '<span class="status-dot bg-red-500"></span> 
+\f1 \'a6\'72\'bc\'c6\'b9\'4c\'a4\'d6
+\f0  (' + content.length + ')'; \}\
+\
+            document.getElementById('seoScore').innerText = score;\
+        \}\
+\
+        // 4. 
+\f1 \'b2\'a3\'a5\'cd
+\f0  Schema\
+        function generateSchema() \{\
+            const h1 = document.getElementById('h1Input').value;\
+            const desc = document.getElementById('metaDesc').value;\
+            const schema = \{\
+                "@context": "https://schema.org",\
+                "@type": "Article",\
+                "headline": h1,\
+                "description": desc,\
+                "author": \{\
+                    "@type": "Organization",\
+                    "name": "
+\f1 \'a5\'fa\'bf\'41\'b6\'45\'a9\'d2
+\f0  Dr.Shine"\
+                \},\
+                "publisher": \{\
+                    "@type": "Organization",\
+                    "name": "
+\f1 \'a5\'fa\'bf\'41\'b6\'45\'a9\'d2
+\f0 ",\
+                    "logo": \{\
+                        "@type": "ImageObject",\
+                        "url": "https://www.dr-shine.com.tw/logo.png"\
+                    \}\
+                \}\
+            \};\
+            \
+            // 
+\f1 \'bd\'c6\'bb\'73\'a8\'ec\'b0\'c5\'b6\'4b\'c3\'af
+\f0 \
+            const textArea = document.createElement("textarea");\
+            textArea.value = '<script type="application/ld+json">\\n' + JSON.stringify(schema, null, 2) + '\\n<\\/script>';\
+            document.body.appendChild(textArea);\
+            textArea.select();\
+            document.execCommand("Copy");\
+            textArea.remove();\
+            alert("
+\f2 \uc0\u9989 
+\f0  Schema 
+\f1 \'a5\'4e\'bd\'58\'a4\'77\'bd\'c6\'bb\'73\'a1\'49
+\f0 \\n
+\f1 \'bd\'d0\'b6\'4b\'a8\'ec\'ba\'f4\'ad\'b6\'aa\'ba
+\f0  <head> 
+\f1 \'a9\'ce
+\f0  <body> 
+\f1 \'a9\'b3\'b3\'a1\'a1\'43
+\f0 \\n
+\f1 \'b3\'6f\'af\'e0\'c0\'b0\'a7\'55
+\f0  Google 
+\f1 \'b2\'7a\'b8\'d1\'b3\'6f\'ac\'4f\'a4\'40\'bd\'67\'b1\'4d\'b7\'7e\'c2\'e5\'c0\'f8\'a4\'e5\'b3\'b9\'a1\'43
+\f0 ");\
+        \}\
+    </script>\
+</body>\
+</html>}
